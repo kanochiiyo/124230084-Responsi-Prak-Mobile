@@ -9,7 +9,7 @@ class CartService {
     return prefs.getStringList(_cartKey) ?? [];
   }
 
-  Future<bool> isFavorite(String productId) async {
+  Future<bool> isAdded(String productId) async {
     final ids = await getCartIds();
     return ids.contains(productId);
   }

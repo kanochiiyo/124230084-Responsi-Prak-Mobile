@@ -49,7 +49,7 @@ class _BottomNavigationBarExampleState
           BottomNavigationBarItem(icon: Icon(Icons.store), label: 'Store'),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
-            label: 'Favorites',
+            label: 'Cart',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],

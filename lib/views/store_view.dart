@@ -51,33 +51,50 @@ class _StoreViewState extends State<StoreView> {
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
-          : CustomScrollView(
-              slivers: [
-                // Grid produk
-                SliverPadding(
-                  padding: EdgeInsets.all(16),
-                  sliver: SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (context, index) => Padding(
-                        padding: const EdgeInsets.only(bottom: 16),
-                        child: InkWell(
-                          onTap: () {
-                            final product =
-                                productController.productList[index];
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    DetailView(product: product),
+          : Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Row(
+                    children: [
+                      Chip(label: Text("All")),
+                      Chip(label: Text("Men's clothing")),
+                      Chip(label: Text("Jewelry")),
+                    ],
+                  ),
+                ),
+
+                Expanded(
+                  child: CustomScrollView(
+                    slivers: [
+                      // Grid produk
+                      SliverPadding(
+                        padding: EdgeInsets.all(16),
+                        sliver: SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (context, index) => Padding(
+                              padding: const EdgeInsets.only(bottom: 16),
+                              child: InkWell(
+                                onTap: () {
+                                  final product =
+                                      productController.productList[index];
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailView(product: product),
+                                    ),
+                                  );
+                                },
+                                borderRadius: BorderRadius.circular(20),
+                                child: _productCard(context, index),
                               ),
-                            );
-                          },
-                          borderRadius: BorderRadius.circular(20),
-                          child: _productCard(context, index),
+                            ),
+                            childCount: productController.productList.length,
+                          ),
                         ),
                       ),
-                      childCount: productController.productList.length,
-                    ),
+                    ],
                   ),
                 ),
               ],

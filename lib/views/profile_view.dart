@@ -49,18 +49,37 @@ class _ProfileViewState extends State<ProfileView> {
               backgroundImage: AssetImage("assets/images/profile.jpg"),
             ),
             SizedBox(height: 20),
-            Text(
-              "Andini Andaresta",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10),
+            Card(
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Text(
+                      "Andini Andaresta",
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10),
 
-            Text(
-              "124230084",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    Text(
+                      "124230084",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      "Logged in as: $_username",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            SizedBox(height: 20),
-            Text("Logged in as: $_username", style: TextStyle(fontSize: 20)),
+
             SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
